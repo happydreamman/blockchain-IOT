@@ -1,4 +1,4 @@
-pragma solidity ^0.4.15;
+pragma solidity >=0.4.0;
 contract SmartToken {
     mapping(address => uint) tokens;
     event OnValueChanged(address indexed _from, uint _value);
@@ -16,7 +16,7 @@ contract SmartToken {
         emit OnValueChanged(recipient, tokens[recipient]);
         return true;
     }
-    function getTokens(address recipient) constant public returns (uint value) {
+    function getTokens(address recipient) public view returns (uint value) {
         return tokens[recipient];
     }
 }
